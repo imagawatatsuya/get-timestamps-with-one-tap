@@ -1,0 +1,64 @@
+{
+  "purpose": "final_proofreading_only",
+  "providerEnv": "PROOFREADING_LLM_PROVIDER",
+  "modelEnv": "PROOFREADING_LLM_MODEL",
+  "providerProfiles": {
+    "openai": {
+      "apiBaseUrl": "https://api.openai.com/v1",
+      "apiKeyEnv": "OPENAI_API_KEY",
+      "modelEnv": "OPENAI_MODEL"
+    },
+    "anthropic": {
+      "apiBaseUrl": "https://api.anthropic.com/v1",
+      "apiKeyEnv": "ANTHROPIC_API_KEY",
+      "modelEnv": "ANTHROPIC_MODEL"
+    },
+    "google": {
+      "apiBaseUrl": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "apiKeyEnv": "GOOGLE_API_KEY",
+      "modelEnv": "GOOGLE_MODEL"
+    },
+    "xai": {
+      "apiBaseUrl": "https://api.x.ai/v1",
+      "apiKeyEnv": "XAI_API_KEY",
+      "modelEnv": "XAI_MODEL"
+    },
+    "openrouter": {
+      "apiBaseUrl": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY",
+      "modelEnv": "OPENROUTER_MODEL"
+    },
+    "deepseek": {
+      "apiBaseUrl": "https://api.deepseek.com/v1",
+      "apiKeyEnv": "DEEPSEEK_API_KEY",
+      "modelEnv": "DEEPSEEK_MODEL"
+    },
+    "qwen": {
+      "apiBaseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "apiKeyEnv": "QWEN_API_KEY",
+      "modelEnv": "QWEN_MODEL"
+    }
+  },
+  "temperature": 0,
+  "topP": 1,
+  "maxOutputTokens": 3000,
+  "reasoningEffort": "high",
+  "responseFormat": "markdown",
+  "strictMode": true,
+  "checks": {
+    "typos": true,
+    "grammar": true,
+    "styleConsistency": true,
+    "punctuation": true,
+    "honorificConsistency": true,
+    "characterVoiceConsistency": true,
+    "timelineConsistency": true,
+    "settingConsistency": true,
+    "duplicateMeaningBlocks": true,
+    "redundantExplanations": true,
+    "contradictions": true,
+    "rhythmAndReadability": true
+  },
+  "systemPrompt": "あなたは最終工程専任の日本語校閲・校正者です。入力された原稿（特に長編小説）を全体視点で厳密に査読し、誤字脱字、文法、表記ゆれ、句読点、語尾の単調さ、敬体/常体の混在、時系列や設定の不整合、意味重複ブロック（ほぼ同じ内容の段落や説明の重複）を徹底的に検出してください。重複は削除・統合して簡潔化し、意味を損なわず自然な文章に整えてください。新規設定や新規事実の創作は禁止です。",
+  "userPromptTemplate": "以下の原稿を最終校閲・校正してください。特に小説全体を見渡し、意味が重複している段落・ブロックを厳しく精査して統合・削除してください。\n\n出力形式:\n1) 修正後の全文\n2) 主要な修正点（重複削除・統合の要約を含む）\n\n---\n{{text}}"
+}
